@@ -1,24 +1,37 @@
 import java.util.Scanner;
 
-public class calculadora {
 
-    public static int suma(int op1, int op2) {
+public class calculadora {
+	
+	private static Scanner reader;
+	
+	public static double raiz(double op1,double op2) {
+		
+		return Math.pow(op1,1/op2);
+	}
+
+	public static double potencia(double op1, double op2) {
+		
+		return Math.pow(op1,op2);
+	}
+
+    public static double suma(double op1, double op2) {
 
       return op1+op2;
 
     }
-    public static int resta(int op1, int op2) {
+    public static double resta(double op1, double op2) {
 
         return op1-op2;
 
     }
 
-    public static int multiplicacion(int op1, int op2) {
+    public static double multiplicacion(double op1, double op2) {
 
         return op1*op2;
 
     }
-    public static int division(int op1, int op2) {
+    public static double division(double op1, double op2) {
 
         return op1/op2;
 
@@ -26,21 +39,26 @@ public class calculadora {
 
     public static void main(String[] args) {
 
-        int op1;
-        int op2;
-        int resultado;
+        double op1;
+        double op2;
+        double resultado;
 
-        Scanner reader = new Scanner(System.in);
+        reader = new Scanner(System.in);
+       
 
 
-        System.out.println("Introduce el primer número:");
-        op1 = reader.nextInt();
+        System.out.println("Introduce el primer operando(Potencias: Base , Raices: Radicando):");
+        op1 = reader.nextDouble();
 
-        System.out.println("Introduce el segundo número:");
-        op2 = reader.nextInt();
-
+        System.out.println("Introduce el segundo operando(Potencias: Exponente , Raices: Índice):");
+        op2 = reader.nextDouble();
         System.out.println("Introduce el nombre de una operación: ");
+        
         switch (reader.next()){
+        	case"raiz":resultado=raiz(op1,op2);
+        	break;
+        	case"potencia":resultado=potencia(op1,op2);
+        	break;
             case"suma":resultado=suma(op1,op2);
                 break;
             case"resta":resultado=resta(op1,op2);
@@ -52,6 +70,7 @@ public class calculadora {
             default:
                 System.out.println("Operacion no reconocida");
                 return;
+      
 
         }
 
