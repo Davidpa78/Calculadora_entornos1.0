@@ -41,12 +41,10 @@ public class calculadora {
 
         double op1;
         double op2;
-        double resultado;
+        double resultado = 0;
 
         /*Creamos un Scanner para dar valor a las variables a través del usuario*/
         reader = new Scanner(System.in);
-       
-
 
         System.out.println("Introduce el primer operando:");
         op1 = reader.nextDouble();
@@ -57,7 +55,7 @@ public class calculadora {
                 + "1: Suma\n"
                 + "2: Resta\n"
                 + "3: Multiplicación\n"
-                + "4: Divión\n"
+                + "4: División\n"
                 + "5: Raíz\n"
                 + "6: Potencias\n");
 
@@ -69,9 +67,24 @@ public class calculadora {
         	break;
                 case"3":resultado=multiplicacion(op1,op2);
                 break;
-                case"4":resultado=division(op1,op2);
+                case"4": 
+                    if (op2 !=0){ 
+                         resultado=division(op1,op2); }
+                    else {
+                         System.out.println("El segundo operando no puede ser 0");
+                         System.exit(0);}
                 break;
-                case"5":resultado=raiz(op1,op2);
+                case"5": if (op2 >=0) { 
+                            if (op1 >=0){
+                                resultado=raiz(op1,op2);
+                                        }
+                            else {
+                                 System.out.println("En una raiz, el radicando no puede ser negativo ");
+                                 System.exit(0);}
+                                  }
+                         else {
+                         System.out.println("El índice no puede se cero o negativo");
+                         System.exit(0);}
                 break;
                 case"6":resultado=potencia(op1,op2);
                 break;
@@ -83,12 +96,12 @@ public class calculadora {
 
         }
         /*Imprimimos resultado*/
-        System.out.println("El resultado es "+ resultado);
+        System.out.println("El resultado es "+resultado);
 
 // Errores a modificar 
 //Poner un limite de caracteres y restriccion de caracteres alfabéticos
-//No se puede dividir entre 0  , op2 =/ 0
-//Raiz op1 no puede ser negativo, y op2 solo puede tomar valores >1
+//No se puede dividir entre 0  , op2 =/ 0, solucionado dia 03/03
+//Raiz op1 no puede ser negativo, y op2 solo puede tomar valores >1 /*Comprobar error en op2=0 infinity*/ 
 
 
 
