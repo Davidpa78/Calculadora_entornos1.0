@@ -37,8 +37,16 @@ public class calculadora {
 	}
         public static double logaritmo (double op1, double op2) {
 
-        return Math.log(op2) / Math.log(op1); /*Hemos creado un algoritmo para que realice el logaritmo de cualquier base */
+        return Math.log(op2) / Math.log(op1); /*Establecemos un algoritmo para que realice el logaritmo de cualquier base */
     }
+
+        public static double factorial (double op1) {
+
+            if (op1==0)
+                return 1;
+            else
+                return op1 * factorial(op1-1);
+        }
      
         public static void main(String[] args) {
 
@@ -61,7 +69,8 @@ public class calculadora {
                 + "4: División\n"
                 + "5: Raíz\n"
                 + "6: Potencias\n"
-                + "7: Logaritmo\n");
+                + "7: Logaritmo\n"
+                + "8: Factorial");
 
         /*Creamos un switch para dar valor a resultado en función de la operación que escriba*/
         switch (reader.next()){
@@ -94,6 +103,8 @@ public class calculadora {
                 break;
                 case"7":resultado=logaritmo(op1,op2);
                 break;
+                case"8":resultado=factorial(op1);
+                    break;
                 /*Si el usuario no introduce una operación que se encuentre en el switch se muestra por pantalla un mensaje y termina el programa*/
                 default:
                 System.out.println("Solo puedes introducir numeros del 1-7");
