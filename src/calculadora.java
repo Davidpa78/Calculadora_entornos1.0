@@ -48,7 +48,7 @@ public class calculadora {
                     System.out.println(s);
                     number = reader.nextDouble();
                 } catch (Exception ex) {
-                    System.out.println("Solo se admite carácteres numéricos");
+                    System.out.println("Solo admite carácteres numéricos");
                     reader.nextLine();
                     OnlyNumbers = true;
                 }
@@ -126,7 +126,7 @@ public class calculadora {
                                      System.exit(0);}
                                       }
                              else {
-                             System.out.println("El índice no puede se cero o negativo");
+                             System.out.println("El índice no puede ser cero o negativo");
                              System.exit(0);}
                     break;
                     case 6:resultado=potencia(op1,op2);
