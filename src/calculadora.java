@@ -75,7 +75,7 @@ public class calculadora {
             /*Creamos un Scanner para dar valor a las variables a través del usuario*/
             reader = new Scanner(System.in);
 
-                System.out.println("      Introduce el numero de la operación deseada: \n"
+                System.out.println("\n"
                         + "  +--------------------------------------------------+\n"
                         + "  |   1: Suma                                        |\n"
                         + "  |   2: Resta                                       |\n"
@@ -86,12 +86,12 @@ public class calculadora {
                         + "  |   7: Logaritmo    (1º:Base,2º:Argumento)         |\n"
                         + "  |   8: Factorial                                   |\n"
                         + "  +--------------------------------------------------+");
-
+                System.out.print("     Introduce el numero de la operación deseada: ");
                     opcion = reader.nextInt();
 
 
                 if(opcion == 8){
-                op1=leer("Introduce el primer operando");
+                op1=leer("Introduce el primer operando:");
 
 
                 }
