@@ -129,6 +129,48 @@ public class calculadoraTest {
 
         Assert.assertEquals(15.7625, calculadora.multiplicacion(4.85, 3.25), 0.0001);
     }
+    /*División*/
 
+
+    @Test
+    public void testDivisión_ValoresPositivos() {
+
+        Assert.assertEquals(5.0, calculadora.division(10,2), 0.0001);
+    }
+
+    @Test
+    public void testDivisión_ValorNegativo() {
+
+        Assert.assertEquals(-3.0, calculadora.division(-6,2), 0.0001);
+    }
+
+    @Test
+    public void testDivisión_Valor0() {
+
+        Assert.assertEquals(0.0, calculadora.division(0,2), 0.0001);
+    }
+    @Test/*Esto es un error matematico en la calculadora hemos establecido un if para que si el usuario introduce un 0 en el op2(divisor) salga un mensaje de texto y no se ejecute*/
+    public void testDivisión_Valor0op2() {
+
+        Assert.assertEquals(Double.POSITIVE_INFINITY, calculadora.division(2,0), 0.0001);
+    }
+
+
+    @Test
+    public void testDivisión_Igual1() {
+
+        Assert.assertEquals(1, calculadora.division(Double.MAX_VALUE,Double.MAX_VALUE), 0.0001);
+    }
+
+    @Test
+    public void testDivisión_Igual1negativo() {
+
+        Assert.assertEquals(-1, calculadora.division(-Double.MAX_VALUE,Double.MAX_VALUE), 0.0001);
+    }
+    @Test
+    public void testDivisión_ValoresDecimales() {
+
+        Assert.assertEquals(1.509259259259259, calculadora.division(6.52, 4.32), 0.0001);
+    }
 
 }
