@@ -173,4 +173,46 @@ public class calculadoraTest {
         Assert.assertEquals(1.509259259259259, calculadora.division(6.52, 4.32), 0.0001);
     }
 
+    /*Potencias*/
+
+
+    @Test
+    public void testPotencia_ValoresPositivos() {
+
+        Assert.assertEquals(25, calculadora.potencia(5,2), 0.0001);
+    }
+    @Test
+    public void testPotencia_ValorNegativo() {
+
+        Assert.assertEquals(0.25, calculadora.potencia(2,-2), 0.0001);
+    }
+    @Test
+    public void testPotencia_ValoresNegativo_op2() {
+
+        Assert.assertEquals(4, calculadora.potencia(-2,2), 0.0001);
+    }
+    @Test
+    public void testPotencia_DesbordamientoArriba() {
+
+        Assert.assertEquals(Double.POSITIVE_INFINITY, calculadora.potencia(Double.MAX_VALUE,2), 0.0001);
+    }
+    @Test /*Establecemos un número impar para que salga un infinito negativo puesto que si no saldria positivo*/
+    public void testPotencia_DesbordamientoAbajo() {
+
+        Assert.assertEquals(-Double.POSITIVE_INFINITY, calculadora.potencia(-Double.MAX_VALUE,3), 0.0001);
+    }
+
+    @Test
+    public void testPotencia_Valor1() {
+
+        Assert.assertEquals(5.0, calculadora.potencia(5,1), 0.0001);
+    }
+    @Test
+    public void testPotencia_Valor0() {
+
+        Assert.assertEquals(1.0, calculadora.potencia(7,0), 0.0001);
+    }
+
+
+
 }
