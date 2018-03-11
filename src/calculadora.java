@@ -55,12 +55,28 @@ public class calculadora {
             } while (OnlyNumbers);
             return number;
         }
-        public static double factorial (double op1) {
+    public static int leer_Int (String s){ /*Necesitamos otra función leer debido a que la función factorial solo se admiten numeros enteros*/
+        boolean OnlyNumbers;
+        int number = 0;
+        do {
+            OnlyNumbers = false;
+            try {
+                System.out.println(s);
+                number = reader.nextInt();
+            } catch (Exception ex) {
+                System.out.println("El factorial solo admite número entero no negativo.");
+                reader.nextLine();
+                OnlyNumbers = true;
+            }
+        } while (OnlyNumbers);
+        return number;
+    }
+        public static int factorial (int op3) {
 
-            if (op1==0)
+            if (op3==0)
                 return 1;
             else
-                return op1 * factorial(op1-1);
+                return op3 * factorial(op3-1);
         }
 
 
@@ -68,6 +84,7 @@ public class calculadora {
         /*Inicializamos las variables para que no de errores en la pedida al usuario*/
         double op1 = 0;
         double op2 = 0;
+        int op3 = 0;
         double resultado = 0;
         boolean OnlyNumbers = false;
         int opcion;
@@ -91,7 +108,7 @@ public class calculadora {
 
 
         if (opcion == 8) {
-            op1 = leer("Introduce el primer operando:");
+            op3 = leer_Int("Introduce el primer operando:");
 
 
         } else {
@@ -144,8 +161,8 @@ public class calculadora {
                         }
                         break;
                     case 8:/*No existe el factorial de números negativos */
-                        if (op1 >= 0) {
-                            resultado = factorial(op1);
+                        if (op3 >= 0) {
+                            resultado = factorial(op3);
                         } else {
                             System.out.println("No existe el factorial de números negativos.");
                             System.exit(0);}

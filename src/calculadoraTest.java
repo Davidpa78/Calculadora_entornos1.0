@@ -213,6 +213,41 @@ public class calculadoraTest {
         Assert.assertEquals(1.0, calculadora.potencia(7,0), 0.0001);
     }
 
+/*Factorial*/
+    @Test
+        public void testFactorial_ValoresPositivos() {
+
+        Assert.assertEquals(6.0, calculadora.factorial(3), 0.0001);
+    }
+    @Test
+    public void testFactorial_Valor0() {
+
+        Assert.assertEquals(1.0, calculadora.factorial(0), 0.0001);
+    }
+
+/**    @Test: No se puede calcular el factorial de un numero negativo, por lo tanto hemos establecido un mensaje de error en la calculadora.
+    public void testFactorial_ValorNegativo() {
+
+        Assert.assertEquals("M.ERROR", calculadora.factorial(-5), 0.0001);
+    }
+**/
+/*    @Test
+        public void testFactorial_DesbordamientoArriba() {
 
 
+        Assert.assertEquals(Integer.MAX_VALUE, calculadora.factorial(999999999L), 0.0001);
+    }
+
+/** @Test   Esperamos un mensaje de error, debido a que no se existen factoriales de numeros negativos
+public void testFactorial_DesbordamientoAbajo() {
+
+Assert.assertEquals("M.ERROR", calculadora.factorial(-Double.MAX_VALUE), 0.0001);
+}
+ **/
+/**   @Test Esperamos un mensaje de error, ya que no se puede calcular el factorial de un número con decimales
+    public void testFactorial_ValoresDecimales() {
+
+        Assert.assertEquals("M.ERROR", calculadora.factorial(3.33), 0.0001);
+    }
+**/
 }
