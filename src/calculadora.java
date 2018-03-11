@@ -65,85 +65,100 @@ public class calculadora {
 
 
     public static void main(String[] args) {
-                /*Inicializamos las variables para que no de errores en la pedida al usuario*/
-            double op1 = 0;
-            double op2 = 0;
-            double resultado = 0;
-            boolean OnlyNumbers = false;
-            int opcion;
+        /*Inicializamos las variables para que no de errores en la pedida al usuario*/
+        double op1 = 0;
+        double op2 = 0;
+        double resultado = 0;
+        boolean OnlyNumbers = false;
+        int opcion;
 
-            /*Creamos un Scanner para dar valor a las variables a través del usuario*/
-            reader = new Scanner(System.in);
+        /*Creamos un Scanner para dar valor a las variables a través del usuario*/
+        reader = new Scanner(System.in);
 
-                System.out.println("\n"
-                        + "  +--------------------------------------------------+\n"
-                        + "  |   1: Suma                                        |\n"
-                        + "  |   2: Resta                                       |\n"
-                        + "  |   3: Multiplicación                              |\n"
-                        + "  |   4: División                                    |\n"
-                        + "  |   5: Raíz         (1º:Radicando,2º:Índice)       |\n"
-                        + "  |   6: Potencia     (1º:Base,2º:Exponente)         |\n"
-                        + "  |   7: Logaritmo    (1º:Base,2º:Argumento)         |\n"
-                        + "  |   8: Factorial                                   |\n"
-                        + "  +--------------------------------------------------+");
-                System.out.print("     Introduce el numero de la operación deseada: ");
-                    opcion = reader.nextInt();
-
-
-                if(opcion == 8){
-                op1=leer("Introduce el primer operando:");
+        System.out.println("\n"
+                + "  +--------------------------------------------------+\n"
+                + "  |   1: Suma                                        |\n"
+                + "  |   2: Resta                                       |\n"
+                + "  |   3: Multiplicación                              |\n"
+                + "  |   4: División                                    |\n"
+                + "  |   5: Raíz         (1º:Radicando,2º:Índice)       |\n"
+                + "  |   6: Potencia     (1º:Base,2º:Exponente)         |\n"
+                + "  |   7: Logaritmo    (1º:Base,2º:Argumento)         |\n"
+                + "  |   8: Factorial                                   |\n"
+                + "  +--------------------------------------------------+");
+        System.out.print("     Introduce el numero de la operación deseada: ");
+        opcion = reader.nextInt();
 
 
-                }
-                else {
-                    op1= leer("Introduce el primer operando");
+        if (opcion == 8) {
+            op1 = leer("Introduce el primer operando:");
 
 
-                    op2 = leer("Introduce el segundo operando: ");
-                }
+        } else {
+            op1 = leer("Introduce el primer operando");
 
-            /*Creamos un switch para dar valor a resultado en función de la operación que escriba*/
-            switch (opcion){
-                case 1:resultado=suma(op1,op2); /*Llamada a las funciones de la operación*/
+
+            op2 = leer("Introduce el segundo operando: ");
+        }
+
+        /*Creamos un switch para dar valor a resultado en función de la operación que escriba*/
+        switch (opcion) {
+            case 1:
+                resultado = suma(op1, op2); /*Llamada a las funciones de la operación*/
                 break;
-                case 2:resultado=resta(op1,op2);
+            case 2:
+                resultado = resta(op1, op2);
                 break;
-                    case 3:resultado=multiplicacion(op1,op2);
+            case 3:
+                resultado = multiplicacion(op1, op2);
+                break;
+            case 4:/*Se soluciona el problema de dividir entre 0*/
+                if (op2 != 0) {
+                    resultado = division(op1, op2);
+                } else {
+                    System.out.println("El segundo operando no puede ser 0");
+                    System.exit(0);
+                }
+                break;
+            case 5: /*Se soluciona el problema de introducir indices pares con radicandos negativos*/
+                if (op2 % 2 == 0) {
+                        if (op1 >= 0) {
+                        resultado = raiz(op1, op2);
+                    }   else {
+                        System.out.println("No existen las raices con índice par de numeros negativos");
+                        System.exit(0);
+                    }
+                    } else {
+                        resultado = raiz(op1, op2);
+                    }
                     break;
-                    case 4:
-                        if (op2 !=0){
-                             resultado=division(op1,op2); }
-                        else {
-                             System.out.println("El segundo operando no puede ser 0");
-                             System.exit(0);}
-                    break;
-                    case 5: if (op2 >=0) {
-                                if (op1 >=0){
-                                    resultado=raiz(op1,op2);
-                                            }
-                                else {
-                                     System.out.println("En una raiz, el radicando no puede ser negativo ");
-                                     System.exit(0);}
-                                      }
-                             else {
-                             System.out.println("El índice no puede ser cero o negativo");
-                             System.exit(0);}
-                    break;
-                    case 6:resultado=potencia(op1,op2);
-                    break;
-                    case 7:resultado=logaritmo(op1,op2);
-                    break;
-                    case 8:resultado=factorial(op1);
+                    case 6:
+                        resultado = potencia(op1, op2);
+                        break;
+                    case 7: /*Se soluciona el problema de introducir en el argumento un 0 o un número negativo*/
+                        if (op2 > 0) {
+                            resultado = logaritmo(op1, op2);
+                        } else {
+                            System.out.println("El segundo operando no puede ser 0 o menor.");
+                            System.exit(0);
+                        }
+                        break;
+                    case 8:/*No existe el factorial de números negativos */
+                        if (op1 >= 0) {
+                            resultado = factorial(op1);
+                        } else {
+                            System.out.println("No existe el factorial de números negativos.");
+                            System.exit(0);}
                         break;
                     /*Si el usuario no introduce una operación que se encuentre en el switch se muestra por pantalla un mensaje y termina el programa*/
                     default:
-                    System.out.println("Solo puedes introducir numeros del 1-8");
-                    return;
+                        System.out.println("Solo puedes introducir numeros del 1-8");
+                        return;
 
 
-            }
-            /*Imprimimos resultado*/
-            System.out.println("El resultado es "+resultado);
-    }
+                }
+                /*Imprimimos resultado*/
+                System.out.println("El resultado es " + resultado);
+        }
 
 }
