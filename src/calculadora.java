@@ -1,13 +1,21 @@
+/**
+ *
+ *@author David Parra
+ *@author Kelvin Carreño
+ *
+ **/
+
+/*Primero importamos la librería para poder utilizar el comando Scanner más adelante */
 import java.util.Scanner;
 
-
 public class calculadora {
-	
+
+    /*Inicializamos el Scanner con el que vamos a realizar la lectura de los datos.*/
 	private static Scanner reader;
 
-	/*Separamos en funciones para simplificar el código y hacerlo más legible*/
-
-	public static double suma(double op1, double op2) {
+	    /*Separamos en funciones para simplificar el código y hacerlo más legible*/
+        /*Creamos una función para cada operación separandolo del Main*/
+	    public static double suma(double op1, double op2) {
             
         return op1+op2;
         
@@ -28,7 +36,8 @@ public class calculadora {
 
         }
         public static double raiz(double op1,double op2) {
-		
+		/*Java tiene la clase Math donde contiene metodos para realizar operaciones matematicas del cual utilizaremos algunas operaciones */
+
 		return Math.pow(op1,1/op2);/*Para hacer la raiz al no haber ninguna función establezco que el exponente es 1/op2*/
 	}
 	    public static double potencia(double op1, double op2) {
@@ -40,6 +49,7 @@ public class calculadora {
         return Math.log(op2) / Math.log(op1); /*Establecemos un algoritmo para que realice el logaritmo de cualquier base */
     }
         public static double leer (String s){
+	        /*Creamos la función leer para evitar que el usuario introduzca cualquier caracter que no sea numérico*/
             boolean OnlyNumbers;
             double number = 0;
             do {
@@ -82,6 +92,7 @@ public class calculadora {
 
     public static void main(String[] args) {
         /*Inicializamos las variables para que no de errores en la pedida al usuario*/
+        /*Inicializamos variable OP3 como Int para dedicarla a la función factorial puesto que no existe los factoriales de números decimales*/
         double op1 = 0;
         double op2 = 0;
         int op3 = 0;
@@ -91,7 +102,7 @@ public class calculadora {
 
         /*Creamos un Scanner para dar valor a las variables a través del usuario*/
         reader = new Scanner(System.in);
-
+        /*Creamos un pequeño interfaz para que el usuario pueda seleccionar una operación con claridad*/
         System.out.println("\n"
                 + "  +--------------------------------------------------+\n"
                 + "  |   1: Suma                                        |\n"
@@ -105,8 +116,7 @@ public class calculadora {
                 + "  +--------------------------------------------------+");
         System.out.print("     Introduce el numero de la operación deseada: ");
         opcion = reader.nextInt();
-
-
+        /*Separamos el caso 8, para dedicarlo a el factorial y lea su numero entero y sus funciones dedicadas*/
         if (opcion == 8) {
             op3 = leer_Int("Introduce el primer operando:");
 
@@ -137,7 +147,7 @@ public class calculadora {
                     System.exit(0);
                 }
                 break;
-            case 5: /*Se soluciona el problema de introducir indices pares con radicandos negativos*/
+            case 5: /*Se soluciona el problema de introducir índices pares con radicandos negativos*/
                 if (op2 % 2 == 0) {
                         if (op1 >= 0) {
                         resultado = raiz(op1, op2);
@@ -160,7 +170,7 @@ public class calculadora {
                             System.exit(0);
                         }
                         break;
-                    case 8:/*No existe el factorial de números negativos */
+                    case 8:/*Se soluciona el problema de introducir numeros negativos*/
                         if (op3 >= 0) {
                             resultado = factorial(op3);
                         } else {

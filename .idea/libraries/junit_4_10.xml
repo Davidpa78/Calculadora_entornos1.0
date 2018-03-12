@@ -3,18 +3,23 @@
     <CLASSES>
       <root url="file://$USER_HOME$/junit4.10/junit4.10" />
       <root url="file://C:/junit4.10" />
+      <root url="file://$PROJECT_DIR$/../../junit4.10/junit4.10" />
     </CLASSES>
     <JAVADOC>
       <root url="file://$USER_HOME$/junit4.10/junit4.10/javadoc" />
       <root url="file://C:/junit4.10/javadoc" />
+      <root url="file://$PROJECT_DIR$/../../junit4.10/junit4.10/javadoc" />
     </JAVADOC>
     <SOURCES>
       <root url="file://$USER_HOME$/junit4.10/junit4.10" />
       <root url="file://C:/junit4.10" />
+      <root url="file://$PROJECT_DIR$/../../junit4.10/junit4.10" />
     </SOURCES>
     <jarDirectory url="file://C:/junit4.10" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/junit4.10/junit4.10" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../junit4.10/junit4.10" recursive="false" />
     <jarDirectory url="file://C:/junit4.10" recursive="false" type="SOURCES" />
     <jarDirectory url="file://$USER_HOME$/junit4.10/junit4.10" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../junit4.10/junit4.10" recursive="false" type="SOURCES" />
   </library>
 </component>
