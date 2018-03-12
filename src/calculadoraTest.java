@@ -50,7 +50,12 @@ public class calculadoraTest {
         Assert.assertEquals(1.0, calculadora.resta(3,2), 0.0001);
     }
     @Test
-    public void testResta_ValorNegativo() {
+    public void testResta_ValorNegativoOp1() {
+
+        Assert.assertEquals(-7.0, calculadora.resta(-3,4), 0.0001);
+    }
+    @Test
+    public void testResta_ValorNegativoOp2() {
 
         Assert.assertEquals(7.0, calculadora.resta(3,-4), 0.0001);
     }
@@ -308,5 +313,51 @@ Assert.assertEquals("M.ERROR", calculadora.factorial(-Double.MAX_VALUE), 0.0001)
         Assert.assertEquals(Double.NaN, calculadora.logaritmo(12,-5), 0.0001);
 
     }
+
+    @Test
+    public void testRaiz_ValoresPositivos() {
+
+        Assert.assertEquals(1.732050808, calculadora.raiz(3,2), 0.0001);
+    }
+
+    @Test
+    public void testRaiz_OP1NegativoOP2Impar() {
+
+        Assert.assertEquals(-5, calculadora.raiz(-5,1), 0.0001);
+    }
+/**
+    @Test
+    public void testRaizOP1NegativoOP2Par() {
+
+        Assert.assertEquals("M.ERROR", calculadora.raiz(-5,2), 0.0001);
+    }
+**/
+
+    @Test
+    public void testRaiz_OP2NegativoOP1Par() {
+
+        Assert.assertEquals(0.5, calculadora.raiz(8,-3), 0.0001);
+    }
+
+
+     @Test
+     public void testRaizOP2NegativoOP1Impar() {
+
+     Assert.assertEquals(0.5, calculadora.raiz(4,-2), 0.0001);
+     }
+
+ @Test
+    public void testRaiz_OP1Valor0() {
+
+        Assert.assertEquals(0.0, calculadora.raiz(0,2), 0.0001);
+    }
+
+/**
+    @Test
+    public void testRaiz_OP2Valor0() {
+
+        Assert.assertEquals("M.ERROR", calculadora.raiz(2,0), 0.0001);
+    }
+**/
 
 }
