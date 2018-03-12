@@ -55,7 +55,7 @@ public class calculadora {
             } while (OnlyNumbers);
             return number;
         }
-    public static int leer_Int (String s){ /*Necesitamos otra función leer debido a que la función factorial solo se admiten numeros enteros*/
+        public static int leer_Int (String s){ /*Necesitamos otra función leer debido a que la función factorial solo se admiten numeros enteros*/
         boolean OnlyNumbers;
         int number = 0;
         do {

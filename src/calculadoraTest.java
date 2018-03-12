@@ -4,12 +4,7 @@ import org.junit.Test;
 
 public class calculadoraTest {
 
-    @Before
-    public void setUp() throws Exception {
-    }
 
-    public void tearDown() throws Exception {
-    }
 
     @Test
     public void testSuma_ValoresPositivos() {
@@ -226,28 +221,92 @@ public class calculadoraTest {
     }
 
 /**    @Test: No se puede calcular el factorial de un numero negativo, por lo tanto hemos establecido un mensaje de error en la calculadora.
+
     public void testFactorial_ValorNegativo() {
 
         Assert.assertEquals("M.ERROR", calculadora.factorial(-5), 0.0001);
     }
 **/
-/*    @Test
+/**    @Test
         public void testFactorial_DesbordamientoArriba() {
 
 
-        Assert.assertEquals(Integer.MAX_VALUE, calculadora.factorial(999999999L), 0.0001);
+        Assert.assertEquals('STACKOVERFLOW', calculadora.factorial(Integer.MAX_VALUE), 0.0001);
     }
 
+
+
 /** @Test   Esperamos un mensaje de error, debido a que no se existen factoriales de numeros negativos
+
 public void testFactorial_DesbordamientoAbajo() {
 
 Assert.assertEquals("M.ERROR", calculadora.factorial(-Double.MAX_VALUE), 0.0001);
 }
+
+
  **/
 /**   @Test Esperamos un mensaje de error, ya que no se puede calcular el factorial de un número con decimales
+
     public void testFactorial_ValoresDecimales() {
 
         Assert.assertEquals("M.ERROR", calculadora.factorial(3.33), 0.0001);
     }
 **/
+/*LOGARITMO*/
+
+    @Test
+    public void testLogaritmo_ValoresPositivos() {
+
+    Assert.assertEquals(2.0, calculadora.logaritmo(10,100), 0.0001);
+
+    }
+
+    @Test
+    public void testLogaritmo_Valor0enop1() {
+
+        Assert.assertEquals(0, calculadora.logaritmo(0,20), 0.0001);
+
+    }
+
+    @Test
+    public void testLogaritmo_Valor0enop2() {
+
+        Assert.assertEquals(Double.NEGATIVE_INFINITY, calculadora.logaritmo(20,0), 0.0001);
+
+    }
+
+    @Test
+    public void testLogaritmo_ValoresDecimales() {
+
+        Assert.assertEquals(1.0272301212626898, calculadora.logaritmo(12.6,13.5), 0.0001);
+
+    }
+
+    @Test
+    public void testLogaritmo_DesbordamientoArriba() {
+
+        Assert.assertEquals(Double.POSITIVE_INFINITY, calculadora.logaritmo(Double.MAX_VALUE,Double.POSITIVE_INFINITY), 0.0001);
+
+    }
+
+    @Test
+    public void testLogaritmo_Igual1() {
+
+        Assert.assertEquals(1, calculadora.logaritmo(10,10), 0.0001);
+
+    }
+
+    @Test
+    public void testLogaritmo_ValorNegativoOp1() {
+
+        Assert.assertEquals(Double.NaN, calculadora.logaritmo(-2,13.5), 0.0001);
+
+    }
+    @Test
+    public void testLogaritmo_ValorNegativo0p2() {
+
+        Assert.assertEquals(Double.NaN, calculadora.logaritmo(12,-5), 0.0001);
+
+    }
+
 }
